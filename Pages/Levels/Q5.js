@@ -24,11 +24,12 @@ import colours from '../../Styles/colours';
 export default function LoadScreen({ route, navigation }) {
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
+            <Text style={Styles.paragraph}>Question 5</Text>
             <Image
                 source={require('../../Images/bridge_wide.png')}
             />
             <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text style={Styles.paragraph}>You arrive at the adventurer's guild, the receptionist asks you what your speciality is:</Text>
+                <Text style={Styles.paragraph}>As you release the energy built up you creat a sort of rift, its messy but it seems to transport you, the master offers you a place to learn and improe your skills.</Text>
             </View>
             <View style={{alignItems: 'center', display: 'flex', flexDirection: "row", justifyContent: 'center', marginTop: 20, flex: 3}}>
                 <TouchableOpacity

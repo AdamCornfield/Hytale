@@ -28,7 +28,7 @@ function Q1Btn(navigation) {
 
 function Q2Btn(navigation) {
     //Mage
-    navigation.navigate("Q1")
+    navigation.navigate("Q2")
 }
 
 export default function LoadScreen({ route, navigation }) {

@@ -38,10 +38,10 @@ import Q2 from './Pages/Levels/Q2';
 import Q3 from './Pages/Levels/Q3';
 import Q4 from './Pages/Levels/Q4';
 import Q5 from './Pages/Levels/Q5';
-/*import E1 from './Pages/Levels/E1';
+import E1 from './Pages/Levels/E1';
 import E2 from './Pages/Levels/E2';
 import E3 from './Pages/Levels/E3';
-import E4 from './Pages/Levels/E4';*/
+import E4 from './Pages/Levels/E4';
 
 const Stack = createNativeStackNavigator();
 
@@ -123,6 +123,54 @@ function App() {
         }} />
         <Stack.Screen name="Q5" component={Q5} options={{
           title: "Q5",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="E1" component={E1} options={{
+          title: "E1",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="E2" component={E2} options={{
+          title: "E2",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="E3" component={E3} options={{
+          title: "E3",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="E4" component={E4} options={{
+          title: "E4",
           headerStyle: {
             backgroundColor: colours.darkVeryDark,
           },

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -24,23 +25,15 @@ import colours from '../../Styles/colours';
 export default function LoadScreen({ route, navigation }) {
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
+            <Text style={Styles.paragraph}>Question 3</Text>
             <Image
                 source={require('../../Images/bridge_wide.png')}
             />
             <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text style={Styles.paragraph}>You arrive at the adventurer's guild, the receptionist asks you what your speciality is:</Text>
+                <Text style={Styles.paragraph}>As you unleash a powerful attack, you then feel the ground shake and a dragon appears, you are frozen in fear, shake your phone to break free.</Text>
             </View>
             <View style={{alignItems: 'center', display: 'flex', flexDirection: "row", justifyContent: 'center', marginTop: 20, flex: 3}}>
-                <TouchableOpacity
-                    style={Styles.questionButton}
-                >
-                    <Text style={Styles.questionButtonText}>Warrior</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={Styles.questionButton}
-                >
-                    <Text style={Styles.questionButtonText}>Mage</Text>
-                </TouchableOpacity>
+                <Text style={Styles.paragraph}>Shake</Text>
             </View>
         </View>
     );

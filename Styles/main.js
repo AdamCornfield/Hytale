@@ -12,6 +12,11 @@ export default StyleSheet.create({
         fontSize: 24,
         textAlign: 'center'
     },
+    text: {
+        fontSize: 12,
+        textAlign: 'center',
+        justifyContent: 'center'
+    },
     menuButton: {
         alignItems: 'center',
         justifyContent: 'center',
@@ -43,6 +48,19 @@ export default StyleSheet.create({
         width: 150,
         height: 75,
         borderRadius: 4,
+        elevation: 3,
+        backgroundColor: colours.blue,
+    },
+    questionButtonCircle: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 20,
+        marginHorizontal: 10,
+        paddingVertical: 12,
+        paddingHorizontal: 32,
+        width: 150,
+        height: 150,
+        borderRadius: 100,
         elevation: 3,
         backgroundColor: colours.blue,
     },
