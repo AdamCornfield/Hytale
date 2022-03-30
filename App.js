@@ -6,8 +6,14 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import * as React from 'react';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import type {Node} from 'react';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -16,97 +22,120 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
+  BackHandler,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+//Styling
+import Styles from './Styles/main';
+import colours from './Styles/colours';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+//Pages
+import HomeScreen from './Pages/Home';
+import PlayScreen from './Pages/Play';
+import Q1 from './Pages/Levels/Q1';
+import Q2 from './Pages/Levels/Q2';
+import Q3 from './Pages/Levels/Q3';
+import Q4 from './Pages/Levels/Q4';
+import Q5 from './Pages/Levels/Q5';
+/*import E1 from './Pages/Levels/E1';
+import E2 from './Pages/Levels/E2';
+import E3 from './Pages/Levels/E3';
+import E4 from './Pages/Levels/E4';*/
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" initialParams={{ itemId: 42 }}>
+        <Stack.Screen name="Home" component={HomeScreen} options={{
+          title: "Home",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
           },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
           },
-        ]}>
-        {children}
-      </Text>
-    </View>
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="Play" component={PlayScreen} options={{
+          title: "Play",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="Q1" component={Q1} options={{
+          title: "Q1",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="Q2" component={Q2} options={{
+          title: "Q2",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="Q3" component={Q3} options={{
+          title: "Q3",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="Q4" component={Q4} options={{
+          title: "Q4",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="Q5" component={Q5} options={{
+          title: "Q5",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+}
 
 export default App;
