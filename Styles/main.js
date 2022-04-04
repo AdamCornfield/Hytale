@@ -67,8 +67,8 @@ export default StyleSheet.create({
     questionButtonText: {
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: 24,
-        lineHeight: 40,
+        fontSize: 22,
+        lineHeight: 50,
         fontWeight: 'bold',
         letterSpacing: 0.25,
         color: 'white',

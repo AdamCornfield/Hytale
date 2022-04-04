@@ -34,6 +34,14 @@ function slideComplete(value, navigation) {
 }
 
 export default function LoadScreen({ route, navigation }) {
+    React.useEffect(
+        () =>
+            navigation.addListener('beforeRemove', (e) => {
+                e.preventDefault();
+            }),
+        [navigation]
+    );
+    
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
             <Text style={Styles.paragraph}>Question 1</Text>

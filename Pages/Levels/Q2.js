@@ -28,6 +28,14 @@ var intervalID
 export default function LoadScreen({ route, navigation }) {
     const [myTime, setMyTime] = useState("5");
     const [myText, setMyText] = useState("0");
+    
+    React.useEffect(
+        () =>
+            navigation.addListener('beforeRemove', (e) => {
+                e.preventDefault();
+            }),
+        [navigation]
+    );
 
     function steptimer () {
         setMyTime(time)
@@ -36,12 +44,18 @@ export default function LoadScreen({ route, navigation }) {
             time--
         } else {
             clearInterval(intervalID)
+            resetValue()
             if (taps > 30) {
                 navigation.navigate("Q5")
             } else {
                 navigation.navigate("Q4")
             }
         }
+    }
+
+    function resetValue () {
+        taps = 0
+        time = 4
     }
 
     function tapBtn () {

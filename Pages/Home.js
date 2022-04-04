@@ -20,6 +20,8 @@ import Styles from '../Styles/main';
 
 import colours from '../Styles/colours';
 
+
+
 function playBtn(navigation) {
     navigation.navigate("Play")
 }
@@ -29,6 +31,14 @@ function exitBtn() {
 }
 
 export default function HomeScreen({ route, navigation }) {
+    React.useEffect(
+        () =>
+            navigation.addListener('beforeRemove', (e) => {
+                e.preventDefault();
+            }),
+        [navigation]
+    );
+    
     return (
         <View style={{ flex: 1, justifyContent: 'center', backgroundColor: colours.dark }}>
             <View style={{ flex: 1, alignItems: 'center', marginTop: 20 }}>

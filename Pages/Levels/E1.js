@@ -22,6 +22,14 @@ import Styles from '../../Styles/main';
 import colours from '../../Styles/colours';
 
 export default function LoadScreen({ route, navigation }) {
+    React.useEffect(
+        () =>
+            navigation.addListener('beforeRemove', (e) => {
+                e.preventDefault();
+            }),
+        [navigation]
+    );
+    
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
             <Text style={Styles.paragraph}>End 1</Text>
@@ -29,7 +37,7 @@ export default function LoadScreen({ route, navigation }) {
                 source={require('../../Images/bridge_wide.png')}
             />
             <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text style={Styles.paragraph}>As you release the energy built up you creat a sort of rift, its messy but it seems to transport you, the master offers you a place to learn and improe your skills.</Text>
+                <Text style={Styles.paragraph}>You break free from your fear and utilise your skill to kill the dragon, the Master is impressed.</Text>
             </View>
         </View>
     );

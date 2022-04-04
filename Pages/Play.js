@@ -32,6 +32,14 @@ function Q2Btn(navigation) {
 }
 
 export default function LoadScreen({ route, navigation }) {
+    React.useEffect(
+        () =>
+            navigation.addListener('beforeRemove', (e) => {
+                e.preventDefault();
+            }),
+        [navigation]
+    );
+    
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
             <Image

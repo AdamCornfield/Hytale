@@ -22,6 +22,15 @@ import Styles from '../../Styles/main';
 import colours from '../../Styles/colours';
 
 export default function LoadScreen({ route, navigation }) {
+    navigation.navigate("Home")
+    React.useEffect(
+        () =>
+            navigation.addListener('beforeRemove', (e) => {
+                e.preventDefault();
+            }),
+        [navigation]
+    );
+    
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
             <Text style={Styles.paragraph}>End 4</Text>
@@ -29,7 +38,7 @@ export default function LoadScreen({ route, navigation }) {
                 source={require('../../Images/bridge_wide.png')}
             />
             <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text style={Styles.paragraph}>As you release the energy built up you creat a sort of rift, its messy but it seems to transport you, the master offers you a place to learn and improe your skills.</Text>
+                <Text style={Styles.paragraph}>You are insulted by the suggestion, you try even harder to complete the spell but you manage to blow up the building. You are ejected from the guild.</Text>
             </View>
         </View>
     );

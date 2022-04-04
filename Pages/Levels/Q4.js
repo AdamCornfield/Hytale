@@ -22,6 +22,24 @@ import Styles from '../../Styles/main';
 import colours from '../../Styles/colours';
 
 export default function LoadScreen({ route, navigation }) {
+    React.useEffect(
+        () =>
+            navigation.addListener('beforeRemove', (e) => {
+                e.preventDefault();
+            }),
+        [navigation]
+    );
+
+    function RunBtn(navigation) {
+        //Run
+        navigation.navigate("E2")
+    }
+
+    function ImproveBtn(navigation) {
+        //Improve
+        navigation.navigate("E3")
+    }
+    
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
             <Text style={Styles.paragraph}>Question 4</Text>
@@ -34,13 +52,15 @@ export default function LoadScreen({ route, navigation }) {
             <View style={{alignItems: 'center', display: 'flex', flexDirection: "row", justifyContent: 'center', marginTop: 20, flex: 3}}>
                 <TouchableOpacity
                     style={Styles.questionButton}
+                    onPress={() => {RunBtn(navigation)}}
                 >
-                    <Text style={Styles.questionButtonText}>Warrior</Text>
+                    <Text style={Styles.questionButtonText}>Run Away</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={Styles.questionButton}
+                    onPress={() => {ImproveBtn(navigation)}}
                 >
-                    <Text style={Styles.questionButtonText}>Mage</Text>
+                    <Text style={Styles.questionButtonText}>Improve</Text>
                 </TouchableOpacity>
             </View>
         </View>
