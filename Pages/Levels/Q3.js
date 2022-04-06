@@ -26,7 +26,7 @@ import colours from '../../Styles/colours';
 
 var shakes = 0
 var time = 4
-var intervalID
+var intervalID3
 
 export default function LoadScreen({ route, navigation }) {
     const [myTime, setMyTime] = useState("5");
@@ -35,7 +35,7 @@ export default function LoadScreen({ route, navigation }) {
     React.useEffect(() => {
         const subscription = RNShake.addListener(() => {
             if (shakes == 0) {
-                intervalID = setInterval(steptimer, 1000);
+                intervalID3 = setInterval(steptimer, 1000);
             }
             shakes++
         
@@ -47,13 +47,13 @@ export default function LoadScreen({ route, navigation }) {
         setMyTime(time)
 
         if (shakes >= 5) {
-            clearInterval(intervalID)
+            stopTimer()
             navigation.navigate("E1")
         } else {
             if (time > 0) {
                 time--
             } else {
-                clearInterval(intervalID)
+                stopTimer()
                 if (shakes >= 5) {
                     navigation.navigate("E1")
                 } else {
@@ -61,6 +61,10 @@ export default function LoadScreen({ route, navigation }) {
                 }
             }
         }
+    }
+
+    function stopTimer () {
+        clearInterval(intervalID3)
     }
     
     React.useEffect(
@@ -74,9 +78,12 @@ export default function LoadScreen({ route, navigation }) {
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
             <Text style={Styles.paragraph}>Question 3</Text>
-            <Image
-                source={require('../../Images/bridge_wide.png')}
-            />
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                <Image
+                    style={Styles.image}
+                    source={require('../../Images/bg/Q3.png')}
+                />
+            </View>
             <View style={{alignItems: 'center', marginTop: 20}}>
                 <Text style={Styles.paragraph}>As you unleash a powerful attack, you then feel the ground shake and a dragon appears, you are frozen in fear, shake your phone to break free.</Text>
             </View>

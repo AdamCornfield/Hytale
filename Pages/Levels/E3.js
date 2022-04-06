@@ -17,19 +17,58 @@ import {
   Image,
 } from 'react-native';
 
+import RNRestart from 'react-native-restart';
+
+import { Linking } from 'react-native'
+
 import Styles from '../../Styles/main';
 
 import colours from '../../Styles/colours';
 
 export default function LoadScreen({ route, navigation }) {
+    React.useEffect(
+        () =>
+            navigation.addListener('beforeRemove', (e) => {
+                e.preventDefault();
+            }),
+        [navigation]
+    );
+    
+    function HomeBtn(navigation) {
+        //Warrior
+        RNRestart.Restart();
+    }
+    
+    function ShareBtn(text) {
+        //Share
+        Linking.openURL(`https://twitter.com/intent/tweet?url=${text}`)
+    }
+
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
             <Text style={Styles.paragraph}>End 3</Text>
-            <Image
-                source={require('../../Images/bridge_wide.png')}
-            />
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                <Image
+                    style={Styles.image}
+                    source={require('../../Images/bg/win.png')}
+                />
+            </View>
             <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text style={Styles.paragraph}>As you release the energy built up you creat a sort of rift, its messy but it seems to transport you, the master offers you a place to learn and improe your skills.</Text>
+                <Text style={Styles.paragraph}>You accept your master's offer of tutelage and become a great adventurer.</Text>
+            </View>
+            <View style={{alignItems: 'center', display: 'flex', flexDirection: "row", justifyContent: 'center', marginTop: 20, flex: 3}}>
+                <TouchableOpacity
+                    style={Styles.questionButton}
+                    onPress={() => {HomeBtn(navigation)}}
+                >
+                    <Text style={Styles.questionButtonText}>Home</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={Styles.questionButton}
+                    onPress={() => {ShareBtn("I%20achieved%20ending%203%20on%20Hytale!")}}
+                >
+                    <Text style={Styles.questionButtonText}>Share</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

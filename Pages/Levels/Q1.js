@@ -45,9 +45,12 @@ export default function LoadScreen({ route, navigation }) {
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
             <Text style={Styles.paragraph}>Question 1</Text>
-            <Image
-                source={require('../../Images/bridge_wide.png')}
-            />
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                <Image
+                    style={Styles.image}
+                    source={require('../../Images/bg/Q1.png')}
+                />
+            </View>
             <View style={{alignItems: 'center', marginTop: 20}}>
                 <Text style={Styles.paragraph}>You are introduced to the Master Warrior of the guild, he challenges you to a duel, how much power do you attack with?</Text>
             </View>

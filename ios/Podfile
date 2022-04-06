@@ -12,6 +12,8 @@ target 'Hytale' do
     :hermes_enabled => false
   )
 
+  pod 'RNSensors', :path => '../node_modules/react-native-sensors'
+
   target 'HytaleTests' do
     inherit! :complete
     # Pods for testing

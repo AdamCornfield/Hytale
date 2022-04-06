@@ -6,16 +6,19 @@ import colours from '../Styles/colours'
 export default StyleSheet.create({
     gameHeader: {
         fontSize: 100,
-        fontWeight: "100"
+        fontWeight: "100",
+        color: 'white'
     },
     paragraph: {
         fontSize: 24,
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white'
     },
     text: {
         fontSize: 12,
         textAlign: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        color: 'white'
     },
     menuButton: {
         alignItems: 'center',
@@ -72,5 +75,9 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         letterSpacing: 0.25,
         color: 'white',
+    },
+    image: {
+        width: 250,
+        height: 250,
     }
 })

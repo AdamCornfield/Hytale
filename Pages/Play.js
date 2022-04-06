@@ -42,9 +42,12 @@ export default function LoadScreen({ route, navigation }) {
     
     return (
         <View style={{ flex: 1, backgroundColor: colours.dark }}>
-            <Image
-                source={require('../Images/bridge_wide.png')}
-            />
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                <Image
+                    style={Styles.image}
+                    source={require('../Images/bg/Play.png')}
+                />
+            </View>
             <View style={{alignItems: 'center', marginTop: 20}}>
                 <Text style={Styles.paragraph}>You arrive at the adventurer's guild, the receptionist asks you what your speciality is:</Text>
             </View>
