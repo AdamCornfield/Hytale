@@ -19,6 +19,8 @@ import {
   Image,
 } from 'react-native';
 
+import RNRestart from 'react-native-restart';
+
 import Styles from '../../Styles/main';
 
 import colours from '../../Styles/colours';
@@ -63,6 +65,14 @@ export default function LoadScreen({ route, navigation }) {
                 maximumTrackTintColor="#FFFFFF"
                 onSlidingComplete={(value) => {slideComplete(value, navigation)}}
             />
+            </View>
+            <View style={{ alignItems: 'center',}}>
+                <TouchableOpacity 
+                    style={Styles.exitGameBtn} 
+                    onPress={() => {RNRestart.Restart();}}
+                >
+                    <Text style={Styles.exitGameText}>Exit Game</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

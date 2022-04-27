@@ -20,6 +20,8 @@ import {
     Image,
 } from 'react-native';
 
+import RNRestart from 'react-native-restart';
+
 import Styles from '../../Styles/main';
 
 import colours from '../../Styles/colours';
@@ -93,6 +95,14 @@ export default function LoadScreen({ route, navigation }) {
             </View>
             <View style={{alignItems: 'center', display: 'flex', flexDirection: "row", justifyContent: 'center', marginTop: 20, flex: 3}}>
                 <Text style={Styles.paragraph}>Shake</Text>
+            </View>
+            <View style={{ alignItems: 'center',}}>
+                <TouchableOpacity 
+                    style={Styles.exitGameBtn} 
+                    onPress={() => {RNRestart.Restart();}}
+                >
+                    <Text style={Styles.exitGameText}>Exit Game</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

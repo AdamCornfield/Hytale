@@ -32,6 +32,7 @@ import colours from './Styles/colours';
 
 //Pages
 import HomeScreen from './Pages/Home';
+import CreditsScreen from './Pages/Credits';
 import PlayScreen from './Pages/Play';
 import Q1 from './Pages/Levels/Q1';
 import Q2 from './Pages/Levels/Q2';
@@ -51,6 +52,18 @@ function App() {
       <Stack.Navigator initialRouteName="Home" initialParams={{ itemId: 42 }}>
         <Stack.Screen name="Home" component={HomeScreen} options={{
           title: "Home",
+          headerStyle: {
+            backgroundColor: colours.darkVeryDark,
+          },
+          headerTintColor: colours.grey,
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          headerShown: false  
+          
+        }} />
+        <Stack.Screen name="Credits" component={CreditsScreen} options={{
+          title: "Credits",
           headerStyle: {
             backgroundColor: colours.darkVeryDark,
           },

@@ -17,6 +17,8 @@ import {
     Image,
 } from 'react-native';
 
+import RNRestart from 'react-native-restart';
+
 import Styles from '../../Styles/main';
 
 import colours from '../../Styles/colours';
@@ -85,7 +87,7 @@ export default function LoadScreen({ route, navigation }) {
             <View style={{alignItems: 'center', marginTop: 20}}>
                 <Text style={Styles.paragraph}>You are introduced to the Great Master Mage of the guild, he asks you to demonstrate your abilities, charge your attack!</Text>
             </View>
-            <View style={{paddingTop: 40, paddingBottom: 0}}>
+            <View style={{paddingTop: 10, paddingBottom: 10}}>
                 <Text style={Styles.text}>Time: {myTime}</Text>
                 <Text style={Styles.text}>Taps: {myText}</Text>
             </View>
@@ -95,6 +97,14 @@ export default function LoadScreen({ route, navigation }) {
                     onPress={() => {tapBtn(navigation)}}
                 >
                     <Text style={Styles.questionButtonText}>Tap!</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{ alignItems: 'center',}}>
+                <TouchableOpacity 
+                    style={Styles.exitGameBtn} 
+                    onPress={() => {RNRestart.Restart();}}
+                >
+                    <Text style={Styles.exitGameText}>Exit Game</Text>
                 </TouchableOpacity>
             </View>
         </View>

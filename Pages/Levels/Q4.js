@@ -17,9 +17,13 @@ import {
   Image,
 } from 'react-native';
 
+import RNRestart from 'react-native-restart';
+
 import Styles from '../../Styles/main';
 
 import colours from '../../Styles/colours';
+
+var intervalID4
 
 export default function LoadScreen({ route, navigation }) {
     React.useEffect(
@@ -29,15 +33,31 @@ export default function LoadScreen({ route, navigation }) {
             }),
         [navigation]
     );
+    
+    var pageTime = 1
+    intervalID4 = setInterval(() => {
+        if (pageTime >= 2) {
+            stopTimer()
+        }
+        pageTime++
+    }, 1000)
+
+    function stopTimer () {
+        clearInterval(intervalID4)
+    }
 
     function RunBtn(navigation) {
         //Run
-        navigation.navigate("E2")
+        if (pageTime >= 2) {
+            navigation.navigate("E2")
+        }
     }
 
     function ImproveBtn(navigation) {
         //Improve
-        navigation.navigate("E3")
+        if (pageTime >= 2) {
+            navigation.navigate("E3")
+        }
     }
     
     return (
@@ -64,6 +84,14 @@ export default function LoadScreen({ route, navigation }) {
                     onPress={() => {ImproveBtn(navigation)}}
                 >
                     <Text style={Styles.questionButtonText}>Improve</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{ alignItems: 'center',}}>
+                <TouchableOpacity 
+                    style={Styles.exitGameBtn} 
+                    onPress={() => {RNRestart.Restart();}}
+                >
+                    <Text style={Styles.exitGameText}>Exit Game</Text>
                 </TouchableOpacity>
             </View>
         </View>

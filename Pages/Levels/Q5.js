@@ -21,6 +21,8 @@ import {
     Image,
 } from 'react-native';
 
+import RNRestart from 'react-native-restart';
+
 import {
     accelerometer,
     gyroscope,
@@ -73,7 +75,7 @@ export default function LoadScreen({ route, navigation }) {
             time5--
         } else {
             stopTimer5()
-            if (highestValue > 40 && highestValue < 70) {
+            if (highestValue > 30 && highestValue < 70) {
                 navigation.navigate("E3")
             } else if (highestValue > 50) {
                 navigation.navigate("E4")
@@ -104,16 +106,22 @@ export default function LoadScreen({ route, navigation }) {
                 />
             </View>
             <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text style={Styles.paragraph}>As you release the energy built up you creat a sort of rift, its messy but it seems to transport you, the master offers you a place to learn and improe your skills.</Text>
+                <Text style={Styles.paragraph}>As you release the energy built up you creat a sort of rift, its messy but it seems to transport you, the master offers you a place to learn and improve your skills.</Text>
             </View>
-            <View style={{paddingTop: 40, paddingBottom: 0}}>
+            <View style={{paddingTop: 30, paddingBottom: 0}}>
                 <Text style={Styles.text}>Time: {myTime}</Text>
                 <Text style={Styles.text}>Highest Acceleration: {myText}</Text>
             </View>
-            <View style={{alignItems: 'center', display: 'flex', flexDirection: "row", justifyContent: 'center', marginTop: 20, flex: 3}}>
-                <View style={{alignItems: 'center', display: 'flex', flexDirection: "row", justifyContent: 'center', marginTop: 20, flex: 3}}>
-                    <Text style={Styles.paragraph}>Throw your phone away</Text>
-                </View>
+            <View style={{alignItems: 'center', display: 'flex', flexDirection: "row", justifyContent: 'center', marginTop: 0, flex: 3}}>
+                <Text style={Styles.paragraph}>Move your phone as fast as you can!</Text>
+            </View>
+            <View style={{ alignItems: 'center',}}>
+                <TouchableOpacity 
+                    style={Styles.exitGameBtn} 
+                    onPress={() => {RNRestart.Restart();}}
+                >
+                    <Text style={Styles.exitGameText}>Exit Game</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

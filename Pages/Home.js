@@ -14,6 +14,7 @@ import {
   Pressable,
   TouchableOpacity,
   BackHandler,
+  ImageBackground,
 } from 'react-native';
 
 import Styles from '../Styles/main';
@@ -24,6 +25,10 @@ import colours from '../Styles/colours';
 
 function playBtn(navigation) {
     navigation.navigate("Play")
+}
+
+function creditsBtn(navigation) {
+    navigation.navigate("Credits")
 }
 
 function exitBtn() {
@@ -41,23 +46,31 @@ export default function HomeScreen({ route, navigation }) {
     
     return (
         <View style={{ flex: 1, justifyContent: 'center', backgroundColor: colours.dark }}>
-            <View style={{ flex: 1, alignItems: 'center', marginTop: 20 }}>
-                <Text style={Styles.gameHeader}>Hytale</Text>
-            </View>
-            <View style={{ flex: 3, alignItems: 'center',}}>
-                <TouchableOpacity 
-                    style={Styles.menuButton} 
-                    onPress={() => {playBtn(navigation)}}
-                >
-                    <Text style={Styles.menuButtonText}>Play</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={Styles.menuButton}
-                    onPress={exitBtn}
-                >
-                    <Text style={Styles.menuButtonText}>Exit</Text>
-                </TouchableOpacity>
-            </View>
+            <ImageBackground source={require('../Images/guild.jpg')} resizeMode="cover" style={{flex: 1, justifyContent: "center"}}>
+                <View style={{ flex: 1, alignItems: 'center', marginTop: 20 }}>
+                    <Text style={Styles.gameHeader}>Hytale</Text>
+                </View>
+                <View style={{ flex: 3, alignItems: 'center'}}>
+                    <TouchableOpacity 
+                        style={Styles.menuButton} 
+                        onPress={() => {playBtn(navigation)}}
+                    >
+                        <Text style={Styles.menuButtonText}>Play</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={Styles.menuButton} 
+                        onPress={() => {creditsBtn(navigation)}}
+                    >
+                        <Text style={Styles.menuButtonText}>Credits</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={Styles.menuButton}
+                        onPress={exitBtn}
+                    >
+                        <Text style={Styles.menuButtonText}>Exit</Text>
+                    </TouchableOpacity>
+                </View>
+            </ImageBackground>
         </View>
     );
 }

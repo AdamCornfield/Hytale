@@ -50,8 +50,8 @@ export default function LoadScreen({ route, navigation }) {
             <Text style={Styles.paragraph}>End 4</Text>
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
                 <Image
-                    style={Styles.image}
-                    source={require('../../Images/bg/lost.png')}
+                    style={Styles.endImage}
+                    source={require('../../Images/bg/E4.jpg')}
                 />
             </View>
             <View style={{alignItems: 'center', marginTop: 20}}>

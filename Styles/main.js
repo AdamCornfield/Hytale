@@ -7,6 +7,11 @@ export default StyleSheet.create({
     gameHeader: {
         fontSize: 100,
         fontWeight: "100",
+        color: 'black'
+    },
+    creditsHeader: {
+        fontSize: 75,
+        fontWeight: "100",
         color: 'white'
     },
     paragraph: {
@@ -14,8 +19,13 @@ export default StyleSheet.create({
         textAlign: 'center',
         color: 'white'
     },
+    hyperLink: {
+        fontSize: 24,
+        textAlign: 'center',
+        color: colours.blue
+    },
     text: {
-        fontSize: 12,
+        fontSize: 18,
         textAlign: 'center',
         justifyContent: 'center',
         color: 'white'
@@ -27,10 +37,10 @@ export default StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 32,
         width: 300,
-        height: 150,
+        height: 100,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: colours.blue,
+        backgroundColor: colours.greyVeryDark,
     },
     menuButtonText: {
         alignItems: 'center',
@@ -39,6 +49,27 @@ export default StyleSheet.create({
         lineHeight: 40,
         fontWeight: 'bold',
         letterSpacing: 0.25,
+        color: 'white',
+    },
+    exitGameBtn: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 20,
+        paddingVertical: 12,
+        paddingHorizontal: 32,
+        width: 300,
+        height: 50,
+        borderRadius: 4,
+        elevation: 3,
+        backgroundColor: colours.greyVeryDark,
+    },
+    exitGameText: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 24,
+        lineHeight: 30,
+        fontWeight: 'bold',
+        letterSpacing: 2,
         color: 'white',
     },
     questionButton: {
@@ -52,7 +83,7 @@ export default StyleSheet.create({
         height: 75,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: colours.blue,
+        backgroundColor: colours.orange,
     },
     questionButtonCircle: {
         alignItems: 'center',
@@ -65,7 +96,7 @@ export default StyleSheet.create({
         height: 150,
         borderRadius: 100,
         elevation: 3,
-        backgroundColor: colours.blue,
+        backgroundColor: colours.orange,
     },
     questionButtonText: {
         alignItems: 'center',
@@ -79,5 +110,13 @@ export default StyleSheet.create({
     image: {
         width: 250,
         height: 250,
+    },
+    endImage: {
+        width: 400,
+        height: 250,
+    },
+    vSpacer: {
+        marginBottom: 10,
+        marginTop: 10
     }
 })
